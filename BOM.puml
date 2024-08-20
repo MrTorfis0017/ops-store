@@ -101,7 +101,7 @@ Category "1" --o "n" Product
 Brand "1" --o "n" Product
 Characteristic "1" --o "n" CharacteristicValue
 Product "1" --o "n" OrderItem
-Order "n" --o "1" OrderItem
+Order "1" --o "n" OrderItem
 Roles--o User
 Category--o Category
 SupplyItem "n" --o "1" Supply
