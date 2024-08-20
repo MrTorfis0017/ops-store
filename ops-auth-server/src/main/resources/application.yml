@@ -1,0 +1,21 @@
+server.port: 9080
+spring:
+  security.oauth2.authorizationserver.client:
+    auth-client:
+      require-authorization-consent: false
+      registration:
+        client-authentication-methods: 'client_secret_basic'
+        client-id: auth-client
+        client-secret: '{bcrypt}$2a$10$jdJGhzsiIqYFpjJiYWMl/eKDOd8vdyQis2aynmFN0dgJ53XvpzzwC'
+        redirect-uris:
+          - 'http://127.0.0.1:9071/login/oauth2/code/spring'
+        authorization-grant-types: 'authorization_code'
+        scopes: 'user.read,user.write,openid'
+  datasource:
+    username: admin
+    password: psw
+    url: jdbc:postgresql://localhost:8433/auth-server
+    driverClassName: org.postgresql.Driver
+  sql:
+    init:
+      mode: always

@@ -1,0 +1,115 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class User{
+id: Long
+email:string
+username:string
+roles:string[]
+}
+
+enum Roles{
+MASTER,USER,ADMIN,WAREHOUSE_WORKER
+}
+
+class Supply{
+id:Long
+createdDate:Date
+deliveredDate:Date
+createdBy:Long
+receivedBy:Long
+}
+
+class SupplyItem{
+id:Long
+deliveryPrice:BigDecimal
+quantity:Integer
+}
+
+class Supplier{
+id:Long
+name:string
+phoneNumber:string
+}
+
+class Brand{
+id:Long
+name:string
+}
+
+class Category{
+id:long
+name:string
+}
+
+class CharacteristicValue{
+id:Long
+value:string
+}
+
+class Characteristic{
+id:Long
+name:string
+}
+
+class Product{
+id:Long
+name:string
+quantity:integer
+}
+
+enum PAYMENT_STATUS{
+NOT_PAYED,
+PAYED,
+REJECTED
+}
+
+enum DELIVERY_STATUS{
+PLACED,
+APPROVED,
+IN_DELIVERY,
+DELIVERED,
+DECLINED
+}
+
+class Order{
+id:Long
+createdBy:long
+
+}
+
+class OrderItem{
+id:Long
+quantity:integer
+}
+
+class News{
+id:Long
+text:string
+createdBy:Long
+img:byte[]
+startDate:Date
+endDate:Date
+}
+
+interface Notification {
+}
+
+Product "1" --o "n" CharacteristicValue
+Category "1" --o "n" Characteristic
+Category "1" --o "n" Product
+Brand "1" --o "n" Product
+Characteristic "1" --o "n" CharacteristicValue
+Product "1" --o "n" OrderItem
+Order "n" --o "1" OrderItem
+Roles--o User
+Category--o Category
+SupplyItem "n" --o "1" Supply
+Product "1" --o "n" SupplyItem
+Supplier "1" --o "n" Supply
+DELIVERY_STATUS --o Order
+PAYMENT_STATUS --o Order
+User --o Order
+User --o News
+@enduml
+

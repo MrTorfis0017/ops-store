@@ -1,0 +1,29 @@
+server:
+  port: 9071
+spring:
+  datasource:
+    username: admin
+    password: psw
+    url: jdbc:postgresql://localhost:8431/admin-site
+    driverClassName: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgresPlusDialect
+        ddl-auto: validate
+        format_sql: true
+  liquibase:
+    change-log: classpath:./db.changelog/changelog-admin.yml
+  security.oauth2.client:
+    provider:
+      spring:
+        issuer-uri: http://localhost:9080
+    registration:
+      spring:
+        authorization-grant-type: authorization_code
+        client-authentication-method: client_secret_basic
+        client-id: auth-client
+        client-secret: secret
+        provider: spring
+        redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
+        scope: user.read,openid

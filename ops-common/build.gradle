@@ -1,0 +1,34 @@
+plugins {
+	id 'java'
+	id 'application'
+	id 'org.springframework.boot' version '3.2.4'
+	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+}
+
+group 'com.ops'
+version 'SHAPSHOT-1.0'
+
+java {
+	sourceCompatibility = '19'
+}
+
+application {
+	mainClass = 'com.ops.common.NikitNuhaiBebry'
+}
+repositories {
+	mavenCentral()
+}
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+dependencies {
+	annotationProcessor 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok'
+	implementation 'org.springframework.boot:spring-boot-starter-web:3.2.4'
+}
+
+test {
+	useJUnitPlatform()
+}

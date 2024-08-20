@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_news_table
+      author: aleksandrPob
+      changes:
+        - createTable:
+            tableName: NEWS
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PK_NEWS
+              - column:
+                  name: TITLE
+                  type: VARCHAR(100)
+                  constraints:
+                    unique: false
+                    nullable: false
+#              - column:
+#                  name: IMG
+#                  type: VARCHAR(255)
+#                  constraints:
+#                    unique: false
+#                    nullable: false
+              - column:
+                  name: START_DATE
+                  type: VARCHAR(50)
+                  constraints:
+                    unique: false
+                    nullable: false
+              - column:
+                  name: END_DATE
+                  type: VARCHAR(50)
+                  constraints:
+                    unique: false
+                    nullable: false
+              - column:
+                  name: CREATED_BY
+                  type: VARCHAR(100)
+                  constraints:
+                    unique: false
+                    nullable: false

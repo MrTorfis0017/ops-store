@@ -1,0 +1,5 @@
+rootProject.name = 'ops-store'
+include("ops-user-ms")
+include("ops-common")
+include("ops-admin-ms")
+include("ops-auth-server")

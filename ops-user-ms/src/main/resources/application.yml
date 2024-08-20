@@ -1,0 +1,14 @@
+server:
+  port: 9072
+spring:
+  datasource:
+    username: admin
+    password: psw
+    url: jdbc:postgresql://localhost:8432/user-site
+    driverClassName: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgresPlusDialect
+        ddl-auto: validate
+        format_sql: true

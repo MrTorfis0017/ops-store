@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  admin_db:
+    image: postgres:latest
+    container_name: admin-db
+    ports:
+      - "8431:5432"
+    environment:
+      POSTGRES_DB: admin-site
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: psw
+
+  user_db:
+    image: postgres:latest
+    container_name: user-db
+    ports:
+      - "8432:5432"
+    environment:
+      POSTGRES_DB: user-site
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: psw
+  auth_db:
+    image: postgres:latest
+    container_name: auth-db
+    ports:
+      - "8433:5432"
+    environment:
+      POSTGRES_DB: auth-server
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: psw
