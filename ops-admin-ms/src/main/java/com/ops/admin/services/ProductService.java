@@ -9,10 +9,14 @@ import com.ops.common.dto.ProductDTO;
 import com.ops.common.exceptions.OpsErrorCode;
 import com.ops.common.exceptions.OpsException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ProductService {
 
     private final ProductRepository productRepository;
@@ -31,5 +35,15 @@ public class ProductService {
         }
         characteristicValueRepository.saveAll(productToSave.getCharacteristicValueList());
         return productConverter.toDTO(productToSave);
+    }
+
+    @Cacheable(value = "users", key = "#id")
+    public ProductDTO get(Long id) {
+        try {
+            Thread.sleep(3000); // 3 seconds delay
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return productConverter.toDTO(productRepository.getReferenceById(id));
     }
 }

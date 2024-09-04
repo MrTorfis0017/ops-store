@@ -3,11 +3,12 @@ package com.ops.common.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
 @Setter
-public class ProductDTO {
+public class ProductDTO implements Serializable {
 
     private Long id;
 

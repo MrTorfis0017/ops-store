@@ -7,10 +7,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @PreAuthorize("hasRole('ADMIN')")
@@ -27,5 +24,14 @@ public class ProductController {
     @PostMapping("/create")
     public ProductDTO createProduct(@RequestBody ProductDTO productDto) {
         return productService.create(productDto);
+    }
+
+    @Operation(description = "Get product by id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success|OK")
+    })
+    @GetMapping("/get/{id}")
+    public ProductDTO getProduct(@PathVariable Long id) {
+        return productService.get(id);
     }
 }
