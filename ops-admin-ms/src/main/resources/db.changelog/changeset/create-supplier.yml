@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_supplier_table
+      author: aleksandrPob
+      changes:
+        - createTable:
+            tableName: SUPPLIER
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PK_SUPPLIER
+              - column:
+                  name: NAME
+                  type: VARCHAR(100)
+                  constraints:
+                    unique: false
+                    nullable: false
+              - column:
+                  name: PHONE_NUMBER
+                  type: VARCHAR(100)
+                  constraints:
+                    unique: false
+                    nullable: false

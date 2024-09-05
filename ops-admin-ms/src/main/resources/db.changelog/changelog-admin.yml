@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - include:
+      file: db.changelog/changeset/create-news.yml
+  - include:
+      file: db.changelog/changeset/create-category.yml
+  - include:
+      file: db.changelog/changeset/create-brand.yml
+  - include:
+      file: db.changelog/changeset/create-product.yml
+  - include:
+      file: db.changelog/changeset/create-characteristic.yml
+  - include:
+      file: db.changelog/changeset/create-characteristic-value.yml
+  - include:
+      file: db.changelog/changeset/create-supplier.yml
+  - include:
+      file: db.changelog/changeset/create-supply.yml
+  - include:
+      file: db.changelog/changeset/create-supply-item.yml
