@@ -13,7 +13,7 @@ spring:
         ddl-auto: validate
         format_sql: true
   liquibase:
-    change-log: classpath:./db.changelog/changelog-admin.yml
+    change-log: classpath:db.changelog/changelog-admin.yml
   security.oauth2.client:
     provider:
       spring:
@@ -27,3 +27,6 @@ spring:
         provider: spring
         redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
         scope: user.read,openid
+
+  kafka:
+    bootstrap-servers: localhost:9092

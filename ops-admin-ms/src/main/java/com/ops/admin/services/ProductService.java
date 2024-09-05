@@ -11,7 +11,6 @@ import com.ops.common.exceptions.OpsException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -40,7 +39,7 @@ public class ProductService {
     @Cacheable(value = "users", key = "#id")
     public ProductDTO get(Long id) {
         try {
-            Thread.sleep(3000); // 3 seconds delay
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

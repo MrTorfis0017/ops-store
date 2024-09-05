@@ -112,4 +112,3 @@ PAYMENT_STATUS --o Order
 User --o Order
 User --o News
 @enduml
-

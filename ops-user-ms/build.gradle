@@ -25,10 +25,9 @@ configurations {
 	}
 }
 dependencies {
+	implementation 'org.springframework.kafka:spring-kafka:3.2.3'
 	implementation 'org.springframework.boot:spring-boot-starter-security:3.2.4'
-	implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
-	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
-	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client:3.3.1'
 	implementation 'org.springframework.boot:spring-boot-starter-web:3.2.4'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '3.2.4'
 	implementation group: 'org.liquibase', name: 'liquibase-core', version: '4.24.0'
