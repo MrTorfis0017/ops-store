@@ -33,4 +33,4 @@ databaseChangeLog:
                     nullable: false
                     unique: false
                     foreignKeyName: FK_ORDER_ITEM_ORDER_ID
-                    references: ORDER(ID)
+                    references: MY_ORDER(ID)

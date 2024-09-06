@@ -22,7 +22,7 @@ spring:
       spring:
         authorization-grant-type: authorization_code
         client-authentication-method: client_secret_basic
-        client-id: auth-client
+        client-id: admin-client
         client-secret: secret
         provider: spring
         redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'

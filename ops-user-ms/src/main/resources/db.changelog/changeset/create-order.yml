@@ -4,7 +4,7 @@ databaseChangeLog:
       author: aleksandrPob
       changes:
         - createTable:
-            tableName: ORDER
+            tableName: MY_ORDER
             columns:
               - column:
                   name: ID

@@ -20,6 +20,7 @@ public class OrderService {
 
     public OrderDTO create(OrderDTO orderDTO) {
         Order order = orderRepository.save(orderConverter.fromDTO(orderDTO));
+        order.getOrderItems().forEach(item->item.setOrder(order));
         orderItemRepository.saveAll(order.getOrderItems());
         return orderConverter.toDTO(order);
     }

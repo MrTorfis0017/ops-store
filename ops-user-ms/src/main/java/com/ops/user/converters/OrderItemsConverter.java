@@ -24,7 +24,9 @@ public class OrderItemsConverter {
     public OrderItem fromDTO(OrderItemDTO orderItemDTO) {
         OrderItem result = new OrderItem();
         result.setId(orderItemDTO.getId());
-        result.setOrder(orderRepository.getReferenceById(orderItemDTO.getOrderId()));
+        if (orderItemDTO.getOrderId() != null)
+            result.setOrder(orderRepository.getReferenceById(orderItemDTO.getOrderId()));
+        else result.setOrder(null);
         result.setProductId(orderItemDTO.getProductId());
         result.setQuantity(orderItemDTO.getQuantity());
         return result;

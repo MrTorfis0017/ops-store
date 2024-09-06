@@ -1,14 +1,24 @@
 server.port: 9080
 spring:
   security.oauth2.authorizationserver.client:
-    auth-client:
+    admin-client:
       require-authorization-consent: false
       registration:
         client-authentication-methods: 'client_secret_basic'
-        client-id: auth-client
+        client-id: admin-client
         client-secret: '{bcrypt}$2a$10$jdJGhzsiIqYFpjJiYWMl/eKDOd8vdyQis2aynmFN0dgJ53XvpzzwC'
         redirect-uris:
           - 'http://127.0.0.1:9071/login/oauth2/code/spring'
+        authorization-grant-types: 'authorization_code'
+        scopes: 'user.read,user.write,openid'
+    user-client:
+      require-authorization-consent: false
+      registration:
+        client-authentication-methods: 'client_secret_basic'
+        client-id: user-client
+        client-secret: '{bcrypt}$2b$12$QoYkpI/tEYeDb4/GFwpXAu0l2RprNAlj/VMuQIN7Yyf7B3AUDGO.i'
+        redirect-uris:
+          - 'http://127.0.0.1:9072/login/oauth2/code/spring'
         authorization-grant-types: 'authorization_code'
         scopes: 'user.read,user.write,openid'
   datasource:
